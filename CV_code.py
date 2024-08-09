@@ -6,7 +6,7 @@ from cvzone.HandTrackingModule import HandDetector
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # ESP module's IP address and port
-esp_ip = "192.168.15.239"  # Replace with the actual IP address of your ESP
+esp_ip = "192.168.251.129"  # Replace with the actual IP address of your ESP
 esp_port = 1234  # Replace with   the port number you set in your ESP code
 
 # Connect to the ESP module
@@ -19,7 +19,7 @@ detector = HandDetector(detectionCon=0.5, maxHands=2)
 while True:
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1)
-
+    
     hands, frame = detector.findHands(frame)
 
     if not hands:
